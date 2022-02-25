@@ -13,7 +13,7 @@ namespace Task_Csv_Importer.Data.Services
 {
     public class CsvParser : ICsvParser
     {
-        
+        //This method accepts argument oftype file, after, it reads the parsing reasult to lislt of objects (IEnumerable<Employee>) then returns it.
         IEnumerable<Employee> ICsvParser.CsvParser(IFormFile formFile)
         {
             MemoryStream stream = new MemoryStream();
@@ -24,12 +24,11 @@ namespace Task_Csv_Importer.Data.Services
 
             using (StreamReader sr = new StreamReader(new MemoryStream(bufferMemory))) 
             {
-                string headerLine = sr.ReadLine(); // remove table heading
+                string headerLine = sr.ReadLine(); 
                 string eachLine;
                 while ((eachLine = sr.ReadLine()) != null)
                 {
                     Employee user = new Employee();
-
                     user.PayrollNumber = eachLine.Split(',')[0];
                     user.Forenames = eachLine.Split(',')[1];
                     user.Surname = eachLine.Split(',')[2];
@@ -48,7 +47,7 @@ namespace Task_Csv_Importer.Data.Services
             }
             return result;
         }
-
+        //This method corrects datetime for entity Model(Employee) format that coming from parsing result.
         public string DateTimeCorrector(string value)
         {
             var newValue = value.Split('/');

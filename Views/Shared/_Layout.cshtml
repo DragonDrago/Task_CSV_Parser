@@ -32,17 +32,32 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <b> Sort By</b>
+                                <b> Sort By Asc</b>
                             </a>
-
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" asp-controller="" asp-action=""><i class="bi bi-people-fill"></i> Authors</a>
-                                <a class="dropdown-item" asp-controller="" asp-action=""><i class="bi bi-person-lines-fill"></i> Publishers</a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="SortByAsc" asp-route-value="PayrollNumber" >PayrollNumber</a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="SortByAsc" asp-route-value="Forenames">Forenames </a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="SortByAsc" asp-route-value="DateOfBirth">DateOfBirth </a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="SortByAsc" asp-route-value="Telephone">Telephone </a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="SortByAsc" asp-route-value="EmailHome">EmailHome </a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <b> Sort By Desc</b>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-controller="Home" asp-action="SortByDesc" asp-route-value="PayrollNumber" >PayrollNumber</a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="SortByDesc" asp-route-value="Forenames">Forenames </a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="SortByDesc" asp-route-value="DateOfBirth">DateOfBirth </a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="SortByDesc" asp-route-value="Telephone">Telephone </a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="SortByDesc" asp-route-value="EmailHome">EmailHome </a>
                             </div>
                         </li>
                     </ul>
                 </div>
-                <form class="form-inline my-2 my-lg-0" asp-controller="Book" asp-action="Filter" style="padding-right: 25px;">
+             
+                <form class="form-inline my-2 my-lg-0" asp-controller="Home" asp-action="Searching" style="padding-right: 25px;">
                     <input name="searchString" type="text" class="form-control" placeholder="Search for a book ...." /><span style="padding:2px"></span>
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i>Search</button>
                 </form>

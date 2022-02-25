@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using Task_Csv_Importer.Data;
 using Task_Csv_Importer.Data.EmployeeRopositories;
 using Task_Csv_Importer.Data.Services;
+using Task_Csv_Importer.Data.SortingAndSearching;
 
 namespace Task_Csv_Importer
 {
@@ -26,10 +27,11 @@ namespace Task_Csv_Importer
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+        { 
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddScoped<ICsvParser, CsvParser>();
+            services.AddScoped<ISortingAndSearching, SortingAndSearching>();
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
         }
 

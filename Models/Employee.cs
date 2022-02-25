@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using Task_Csv_Importer.Data.Base;
 
 namespace Task_Csv_Importer.Models
 {
-    public class Employee:IEntityBase
+    public class Employee
     {
         [Key]
         public int Id { get; set; }
